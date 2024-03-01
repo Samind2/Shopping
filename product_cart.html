@@ -1,299 +1,366 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Food Ordering</title>
-    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="#" />
     <style>
-        /* CSS styles */
-        .navbar {
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      /* CSS styles */
+      body {
+        background-color: #e5c5ff; /* เลือกสีพื้นหลัง */
+      }
+      .navbar {
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .navbar-brand {
-            font-size: 24px;
-            font-weight: bold;
-        }
+      .navbar-brand {
+        font-size: 24px;
+        font-weight: bold;
+      }
 
-        .navbar-logo {
-            width: 50px;
-            height: auto;
-        }
+      .navbar-logo {
+        width: 50px;
+        height: auto;
+      }
 
-        .navbar-items {
-            display: flex;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar-items li {
-            margin-right: 10px;
-        }
-
-        .navbar-items li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .navbar-items li a:hover {
-            color: #f5f5f5;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-            padding: 0 20px;
-        }
-
-        .menu {
-            width: 70%;
-        }
-
-        .menu-item {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 20px;
-        }
-
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-
-        .menu-item img {
-            width: 100px;
-            height: auto;
-            margin-right: 20px;
-        }
-
-        .menu-item h3 {
-            margin: 0 0 10px 0;
-        }
-
-        .menu-item p {
-            margin: 0;
-        }
-
-        .order {
-            width: 30%;
-            background-color: #f5f5f5;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        
-        .order-button:hover {
-    background-color: #555; /* เปลี่ยนสีพื้นหลังเป็นสีเข้มเมื่อ hover */
-}
-
-        .order h2 {
-            margin-top: 0;
-        }
-
-        .order-item {
-            margin-bottom: 10px;
-        }
-
-        .order-item p {
-            margin: 0;
-        }
-
-        .order-total {
-            font-weight: bold;
-        }
-
-        .order-button {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .order-button:hover {
-            background-color: #555;
-        }
-
-        /* Additional CSS for image resizing */
-        .order-item img {
-            width: 50px; /* Adjust as needed */
-            height: auto;
-            margin-right: 10px;
-        }
-    /* CSS styles for PDF slip format */
-/* CSS styles for PDF slip format */
-@media print {
-    body {
+      .navbar-items {
+        display: flex;
+        list-style-type: none;
         margin: 0;
         padding: 0;
-        font-family: Arial, sans-serif;
-    }
-    .container {
-        width: 58mm; /* ปรับขนาดเป็น 58 มม. */
-        margin: 0 auto;
-        padding: 10px;
-        box-sizing: border-box;
-        border: 2px solid #000;
-    }
-    .header {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .order-summary {
-        margin-bottom: 10px;
-    }
-    .order-summary p {
+      }
+
+      .navbar-items li {
+        margin-right: 10px;
+      }
+
+      .navbar-items li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .navbar-items li a:hover {
+        color: #f5f5f5;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        padding: 0 20px;
+      }
+
+      .menu {
+        width: 70%;
+      }
+
+      .menu-item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+      }
+
+      .menu-item:last-child {
+        border-bottom: none;
+      }
+
+      .menu-item img {
+        width: 150px; /* ปรับขนาดภาพให้มีความกว้าง 150px */
+        height: auto; /* ปรับสูงของภาพโดยอัตโนมัติ */
+        margin-right: 20px;
+      }
+
+      .menu-item h3 {
+        margin: 0 0 10px 0;
+        color: #333;
+      }
+
+      .menu-item p {
         margin: 0;
-    }
-    .order-items {
+      }
+
+      .order {
+        width: 30%;
+        height: 30%;
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 15px; /* เพิ่มขอบโค้งให้กับกล่องข้อความ */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเส้นขอบรอบโค้ง */
+      }
+
+      .order-button:hover {
+        background-color: #555; /* เปลี่ยนสีพื้นหลังเป็นสีเข้มเมื่อ hover */
+      }
+
+      .order h2 {
+        margin-top: 0;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .order-item {
         margin-bottom: 10px;
-    }
-    .order-items ul {
-        padding-left: 0;
-        list-style: none;
+      }
+
+      .order-item p {
         margin: 0;
-    }
-    .order-items li {
-        margin-bottom: 5px;
-    }
-    .total {
-        text-align: right;
+      }
+
+      .order-total {
         font-weight: bold;
-    }
-}
-.edit-button {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-}
+      }
 
-.edit-button:hover {
-    background-color: #555;
-}
+      .order-button {
+        background-color: #333; /* สีพื้นหลังของปุ่ม */
+        color: white; /* สีข้อความบนปุ่ม */
+        border: none;
+        padding: 10px 20px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 25px; /* เพิ่มขอบโค้งให้กับปุ่ม */
+        cursor: pointer;
+      }
 
+      .order-button:hover {
+        background-color: #555; /* เปลี่ยนสีพื้นหลังเป็นสีเข้มเมื่อ hover */
+      }
+
+      /* Additional CSS for image resizing */
+      .order-item img {
+        width: 50px; /* Adjust as needed */
+        height: auto;
+        margin-right: 10px;
+      }
+      /* CSS styles for PDF slip format */
+      /* CSS styles for PDF slip format */
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+        }
+        .container {
+          width: 58mm; /* ปรับขนาดเป็น 58 มม. */
+          margin: 0 auto;
+          padding: 10px;
+          box-sizing: border-box;
+          border: 2px solid #000;
+        }
+        .header {
+          text-align: center;
+          margin-bottom: 10px;
+        }
+        .order-summary {
+          margin-bottom: 10px;
+        }
+        .order-summary p {
+          margin: 0;
+        }
+        .order-items {
+          margin-bottom: 10px;
+        }
+        .order-items ul {
+          padding-left: 0;
+          list-style: none;
+          margin: 0;
+        }
+        .order-items li {
+          margin-bottom: 5px;
+        }
+        .total {
+          text-align: right;
+          font-weight: bold;
+        }
+      }
+      .edit-button {
+        background-color: #333; /* สีพื้นหลังของปุ่ม */
+        color: white; /* สีข้อความบนปุ่ม */
+        border: none;
+        padding: 10px 20px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 25px; /* เพิ่มขอบโค้งให้กับปุ่ม */
+        cursor: pointer;
+      }
+
+      .edit-button:hover {
+        background-color: #555;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="navbar">
-        <div class="navbar-brand">SE Food</div>
-        <img src="Logo.png" alt="Logo" class="navbar-logo">
+      <div class="navbar-brand">SE Food</div>
+      <img src="Logo.png" alt="Logo" class="navbar-logo" />
     </div>
 
     <div class="container">
-        <div class="menu">
-            <div class="menu-item" id="1">
-                <img src="product1.jpg" alt="Dish 1">
-                <h3>Dish 1</h3>
-                <p>Description of Dish 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>30 บาท</p>
-                <button class="order-button" data-product-id="1" data-price="30">Order Now</button>
-                <button class="edit-button" data-product-id="1">Edit</button>
-            </div>
-            <div class="menu-item">
-                <img src="product2.jpg" alt="Dish 2">
-                <h3>Dish 2</h3>
-                <p>Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>40 บาท</p>
-                <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="product3.jpg" alt="Dish 2">
-                <h3>Dish 3</h3>
-                <p>Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>40 บาท</p>
-                <button class="order-button" data-product-id="3" data-price="40">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="product4.jpg" alt="Dish 2">
-                <h3>Dish 4</h3>
-                <p>Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>55 บาท</p>
-                <button class="order-button" data-product-id="4" data-price="55">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="product5.jpg" alt="Dish 2">
-                <h3>Dish 5</h3>
-                <p>Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>50 บาท</p>
-                <button class="order-button" data-product-id="5" data-price="50">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="product6.jpg" alt="Dish 2">
-                <h3>Dish 6</h3>
-                <p>Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>50 บาท</p>
-                <button class="order-button" data-product-id="6" data-price="65">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="product7.jpg" alt="Dish 2">
-                <h3>Dish 7</h3>
-                <p>Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>120 บาท</p>
-                <button class="order-button" data-product-id="7" data-price="120">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="product8.jpeg" alt="Dish 2">
-                <h3>Dish 8</h3>
-                <p>Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>59 บาท</p>
-                <button class="order-button" data-product-id="8" data-price="59">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="product9.jpeg" alt="Dish 2">
-                <h3>Dish 9</h3>
-                <p>Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>100 บาท</p>
-                <button class="order-button" data-product-id="9" data-price="100">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="product10.jpeg" alt="Dish 2">
-                <h3>Dish 10</h3>
-                <p>Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>150 บาท</p>
-                <button class="order-button" data-product-id="10" data-price="150">Order Now</button>
-            </div>
-            <!-- Add more menu items as needed -->
+      <div class="menu">
+        <div class="menu-item" id="1">
+          <img src="product1.jpg" alt="Dish 1" />
+          <h3>Dish 1</h3>
+          <p>
+            Description of Dish 1. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit.
+          </p>
+          <p>30 บาท</p>
+          <button class="order-button" data-product-id="1" data-price="30">
+            Order Now
+          </button>
+          <button class="edit-button" data-product-id="1">Edit</button>
         </div>
-
-        <div class="order">
-            <h2>Your Order</h2>
-            <form id="customer-info">
-                <label for="customer-name">Name:</label>
-                <input type="text" id="customer-name" name="customer-name" required><br><br>
-                <label for="customer-phone">Phone:</label>
-                <input type="tel" id="customer-phone" name="customer-phone" required><br><br>
-                <label for="order-date">Order Date:</label>
-                <input type="date" id="order-date" name="order-date" required><br><br>
-            </form>
-
-            <div class="order-items">
-                <!-- Order items will be displayed here -->
-            </div>
-            <p class="order-total">Total: $<span id="order-total">0.00</span></p>
-            <button id="checkout-button" class="order-button">Checkout</button>
-            
+        <div class="menu-item">
+          <img src="product2.jpg" alt="Dish 2" />
+          <h3>Dish 2</h3>
+          <p>
+            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
+          <p>40 บาท</p>
+          <button class="order-button" data-product-id="2" data-price="40">
+            Order Now
+          </button>
         </div>
+        <div class="menu-item">
+          <img src="product3.jpg" alt="Dish 2" />
+          <h3>Dish 3</h3>
+          <p>
+            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
+          <p>40 บาท</p>
+          <button class="order-button" data-product-id="3" data-price="40">
+            Order Now
+          </button>
+        </div>
+        <div class="menu-item">
+          <img src="product4.jpg" alt="Dish 2" />
+          <h3>Dish 4</h3>
+          <p>
+            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
+          <p>55 บาท</p>
+          <button class="order-button" data-product-id="4" data-price="55">
+            Order Now
+          </button>
+        </div>
+        <div class="menu-item">
+          <img src="product5.jpg" alt="Dish 2" />
+          <h3>Dish 5</h3>
+          <p>
+            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
+          <p>50 บาท</p>
+          <button class="order-button" data-product-id="5" data-price="50">
+            Order Now
+          </button>
+        </div>
+        <div class="menu-item">
+          <img src="product6.jpg" alt="Dish 2" />
+          <h3>Dish 6</h3>
+          <p>
+            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
+          <p>50 บาท</p>
+          <button class="order-button" data-product-id="6" data-price="65">
+            Order Now
+          </button>
+        </div>
+        <div class="menu-item">
+          <img src="product7.jpg" alt="Dish 2" />
+          <h3>Dish 7</h3>
+          <p>
+            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
+          <p>120 บาท</p>
+          <button class="order-button" data-product-id="7" data-price="120">
+            Order Now
+          </button>
+        </div>
+        <div class="menu-item">
+          <img src="product8.jpeg" alt="Dish 2" />
+          <h3>Dish 8</h3>
+          <p>
+            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
+          <p>59 บาท</p>
+          <button class="order-button" data-product-id="8" data-price="59">
+            Order Now
+          </button>
+        </div>
+        <div class="menu-item">
+          <img src="product9.jpeg" alt="Dish 2" />
+          <h3>Dish 9</h3>
+          <p>
+            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
+          <p>100 บาท</p>
+          <button class="order-button" data-product-id="9" data-price="100">
+            Order Now
+          </button>
+        </div>
+        <div class="menu-item">
+          <img src="product10.jpeg" alt="Dish 2" />
+          <h3>Dish 10</h3>
+          <p>
+            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
+          <p>150 บาท</p>
+          <button class="order-button" data-product-id="10" data-price="150">
+            Order Now
+          </button>
+        </div>
+        <!-- Add more menu items as needed -->
+      </div>
+
+      <div class="order">
+        <h2>Your Order</h2>
+        <form id="customer-info">
+          <label for="customer-name">Name:</label>
+          <input
+            type="text"
+            id="customer-name"
+            name="customer-name"
+            required
+          /><br /><br />
+          <label for="customer-phone">Phone:</label>
+          <input
+            type="tel"
+            id="customer-phone"
+            name="customer-phone"
+            required
+          /><br /><br />
+          <label for="order-date">Order Date:</label>
+          <input
+            type="date"
+            id="order-date"
+            name="order-date"
+            required
+          /><br /><br />
+        </form>
+
+        <div class="order-items">
+          <!-- Order items will be displayed here -->
+        </div>
+        <p class="order-total">Total: $<span id="order-total">0.00</span></p>
+        <button id="checkout-button" class="order-button">Checkout</button>
+      </div>
     </div>
 
-
     <script src="cart.js"></script>
-   
-</body>
+  </body>
 </html>
-
-
