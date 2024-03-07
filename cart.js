@@ -1,23 +1,23 @@
 const cart = {};
 
 document.querySelectorAll(".order-button").forEach((button) => {
-    button.addEventListener("click", () => {
-        const productId = button.getAttribute("data-product-id");
-        const price = parseFloat(button.getAttribute("data-price"));
-        const productNameNode = button.parentElement.querySelector("h3");
-        const productName = productNameNode ? productNameNode.textContent : "";
+  button.addEventListener("click", () => {
+      const productId = button.getAttribute("data-product-id");
+      const price = parseFloat(button.getAttribute("data-price"));
+      // เปลี่ยนการดึงชื่ออาหารจากตัวอักษรที่มีคุณสมบัติเฉพาะ
+      const productName = button.parentElement.querySelector(".card-title").textContent;
 
-        if (!cart[productId]) {
-            cart[productId] = {
-                quantity: 1,
-                price: price,
-                name: productName,
-            };
-        } else {
-            cart[productId].quantity++;
-        }
-        updateCartDisplay();
-    });
+      if (!cart[productId]) {
+          cart[productId] = {
+              quantity: 1,
+              price: price,
+              name: productName,
+          };
+      } else {
+          cart[productId].quantity++;
+      }
+      updateCartDisplay();
+  });
 });
 
 function calculateTotalPriceAndQuantity() {

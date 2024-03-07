@@ -3,6 +3,8 @@
   <head>
     <title>Food Ordering</title>
     <link rel="shortcut icon" href="#" />
+     <!-- Bootstrap CSS -->
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
       /* CSS styles */
       body {
@@ -115,6 +117,17 @@
         font-weight: bold;
       }
 
+      
+      .card {
+  width: 100%; /* กำหนดความกว้างของการ์ดให้เท่ากัน */
+  height: auto; /* กำหนดความสูงของการ์ดให้เป็นค่าตามข้อมูลภาพ */
+  transition: transform 0.3s ease; /* เพิ่มเอฟเฟ็กต์ transition เมื่อ hover */
+}
+
+.card:hover {
+  transform: scale(1.05); /* เพิ่มเอฟเฟ็กต์ขยายขนาดของการ์ดเมื่อ hover */
+}
+
       .order-button {
         background-color: #333; /* สีพื้นหลังของปุ่ม */
         color: white; /* สีข้อความบนปุ่ม */
@@ -133,8 +146,8 @@
 
       /* Additional CSS for image resizing */
       .order-item img {
-        width: 50px; /* Adjust as needed */
-        height: auto;
+        width: 100%; /* Adjust as needed */
+        height: 100%;
         margin-right: 10px;
       }
       /* CSS styles for PDF slip format */
@@ -196,171 +209,166 @@
     </style>
   </head>
   <body>
-    <div class="navbar">
-      <div class="navbar-brand">SE Food</div>
-      <img src="Logo.png" alt="Logo" class="navbar-logo" />
-    </div>
-
-    <div class="container">
-      <div class="menu">
-        <div class="menu-item" id="1">
-          <img src="product1.jpg" alt="Dish 1" />
-          <h3>Dish 1</h3>
-          <p>
-            Description of Dish 1. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
-          </p>
-          <p>30 บาท</p>
-          <button class="order-button" data-product-id="1" data-price="30">
-            Order Now
-          </button>
-          <button class="edit-button" data-product-id="1">Edit</button>
-        </div>
-        <div class="menu-item">
-          <img src="product2.jpg" alt="Dish 2" />
-          <h3>Dish 2</h3>
-          <p>
-            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-          </p>
-          <p>40 บาท</p>
-          <button class="order-button" data-product-id="2" data-price="40">
-            Order Now
-          </button>
-        </div>
-        <div class="menu-item">
-          <img src="product3.jpg" alt="Dish 2" />
-          <h3>Dish 3</h3>
-          <p>
-            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-          </p>
-          <p>40 บาท</p>
-          <button class="order-button" data-product-id="3" data-price="40">
-            Order Now
-          </button>
-        </div>
-        <div class="menu-item">
-          <img src="product4.jpg" alt="Dish 2" />
-          <h3>Dish 4</h3>
-          <p>
-            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-          </p>
-          <p>55 บาท</p>
-          <button class="order-button" data-product-id="4" data-price="55">
-            Order Now
-          </button>
-        </div>
-        <div class="menu-item">
-          <img src="product5.jpg" alt="Dish 2" />
-          <h3>Dish 5</h3>
-          <p>
-            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-          </p>
-          <p>50 บาท</p>
-          <button class="order-button" data-product-id="5" data-price="50">
-            Order Now
-          </button>
-        </div>
-        <div class="menu-item">
-          <img src="product6.jpg" alt="Dish 2" />
-          <h3>Dish 6</h3>
-          <p>
-            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-          </p>
-          <p>50 บาท</p>
-          <button class="order-button" data-product-id="6" data-price="65">
-            Order Now
-          </button>
-        </div>
-        <div class="menu-item">
-          <img src="product7.jpg" alt="Dish 2" />
-          <h3>Dish 7</h3>
-          <p>
-            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-          </p>
-          <p>120 บาท</p>
-          <button class="order-button" data-product-id="7" data-price="120">
-            Order Now
-          </button>
-        </div>
-        <div class="menu-item">
-          <img src="product8.jpeg" alt="Dish 2" />
-          <h3>Dish 8</h3>
-          <p>
-            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-          </p>
-          <p>59 บาท</p>
-          <button class="order-button" data-product-id="8" data-price="59">
-            Order Now
-          </button>
-        </div>
-        <div class="menu-item">
-          <img src="product9.jpeg" alt="Dish 2" />
-          <h3>Dish 9</h3>
-          <p>
-            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-          </p>
-          <p>100 บาท</p>
-          <button class="order-button" data-product-id="9" data-price="100">
-            Order Now
-          </button>
-        </div>
-        <div class="menu-item">
-          <img src="product10.jpeg" alt="Dish 2" />
-          <h3>Dish 10</h3>
-          <p>
-            Description of Dish 2. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-          </p>
-          <p>150 บาท</p>
-          <button class="order-button" data-product-id="10" data-price="150">
-            Order Now
-          </button>
-        </div>
-        <!-- Add more menu items as needed -->
+  <nav class="navbar navbar-dark bg-dark">
+      <div class="container">
+          <a href="#" class="navbar-brand">SE Food</a>
+          <img src="Logo.png" alt="Logo" class="navbar-logo">
       </div>
-
-      <div class="order">
-        <h2>Your Order</h2>
-        <form id="customer-info">
-          <label for="customer-name">Name:</label>
-          <input
-            type="text"
-            id="customer-name"
-            name="customer-name"
-            required
-          /><br /><br />
-          <label for="customer-phone">Phone:</label>
-          <input
-            type="tel"
-            id="customer-phone"
-            name="customer-phone"
-            required
-          /><br /><br />
-          <label for="order-date">Order Date:</label>
-          <input
-            type="date"
-            id="order-date"
-            name="order-date"
-            required
-          /><br /><br />
-        </form>
-
-        <div class="order-items">
-          <!-- Order items will be displayed here -->
+  </nav>
+  
+  <div class="container mt-5">
+      <div class="row">
+          <div class="col-md-10">
+              <!-- Menu items -->
+              <div class="row">
+                  <!-- Replace the following menu items with data from your old webpage -->
+                  <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img src="product1.jpg" class="card-img-top" alt="Dish 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Dish 1</h5>
+                            <p class="card-text">Description of Dish 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text">30 บาท</p>
+                            <button class="order-button" data-product-id="1" data-price="30">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img src="product2.jpg" class="card-img-top" alt="Dish 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Dish 2</h5>
+                            <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text">40 บาท</p>
+                            <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img src="product3.jpg" class="card-img-top" alt="Dish 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Dish 2</h5>
+                            <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text">40 บาท</p>
+                            <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img src="product4.jpg" class="card-img-top" alt="Dish 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Dish 2</h5>
+                             <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="card-text">40 บาท</p>
+                            <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="card">
+                      <img src="product5.jpg" class="card-img-top" alt="Dish 2">
+                      <div class="card-body">
+                          <h5 class="card-title">Dish 2</h5>
+                           <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                          <p class="card-text">40 บาท</p>
+                          <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="card">
+                    <img src="product6.jpeg" class="card-img-top" alt="Dish 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Dish 2</h5>
+                         <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p class="card-text">40 บาท</p>
+                        <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="card">
+                  <img src="product7.jpg" class="card-img-top" alt="Dish 2">
+                  <div class="card-body">
+                      <h5 class="card-title">Dish 2</h5>
+                       <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      <p class="card-text">40 บาท</p>
+                      <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card">
+                <img src="product8.jpeg" class="card-img-top" alt="Dish 2">
+                <div class="card-body">
+                    <h5 class="card-title">Dish 2</h5>
+                     <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="card-text">40 บาท</p>
+                    <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
+                </div>
+            </div>
         </div>
-        <p class="order-total">Total: $<span id="order-total">0.00</span></p>
-        <button id="checkout-button" class="order-button">Checkout</button>
+        <div class="col-md-6 mb-4">
+          <div class="card">
+              <img src="product9.jpg" class="card-img-top" alt="Dish 2">
+              <div class="card-body">
+                  <h5 class="card-title">Dish 2</h5>
+                   <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <p class="card-text">40 บาท</p>
+                  <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
+              </div>
+          </div>
       </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+            <img src="product10.jpeg" class="card-img-top" alt="Dish 2">
+            <div class="card-body">
+                <h5 class="card-title">Dish 2</h5>
+                 <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="card-text">40 บาท</p>
+                <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
+            </div>
+        </div>
     </div>
-
-    <script src="cart.js"></script>
+                
+                
+                </div>
+                
+                  <!-- Add more menu items here -->
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+              <!-- Order section -->
+              <div class="card">
+                  <h5 class="card-header">Your Order</h5>
+                  <div class="card-body">
+                      <!-- Your order form and items will go here -->
+                      <form id="customer-info">
+                          <label for="customer-name">Name:</label>
+                          <input type="text" id="customer-name" name="customer-name" required /><br /><br />
+                          <label for="customer-phone">Phone:</label>
+                          <input type="tel" id="customer-phone" name="customer-phone" required /><br /><br />
+                          <label for="order-date">Order Date:</label>
+                          <input type="date" id="order-date" name="order-date" required /><br /><br />
+                      </form>
+                      <div class="order-items">
+                          <!-- Order items will be displayed here -->
+                      </div>
+                      <p class="order-total">Total: $<span id="order-total">0.00</span></p>
+                      <button id="checkout-button" class="order-button">Checkout</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="cart.js"></script>
   </body>
-</html>
+  </html>
