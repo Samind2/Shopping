@@ -8,24 +8,25 @@
     <style>
       /* CSS styles */
       body {
-        background-color: #e5c5ff; /* เลือกสีพื้นหลัง */
-      }
-      .navbar {
-        background-color: #333;
-        color: white;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+  background-color: #f7e1ff; /* เลือกสีพื้นหลังเป็นโทนสีชมพู-ม่วงอ่อน */
+}
+.navbar {
+  background-color: #8e6b9b; /* เปลี่ยนสีของ Navbar เป็นสีชมพู-ม่วงอ่อน */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
       .navbar-brand {
-        font-size: 24px;
+        font-size: 35px;
         font-weight: bold;
+        color: #f5f5f5;
       }
 
       .navbar-logo {
-        width: 50px;
+        width: 70px;
         height: auto;
       }
 
@@ -117,16 +118,42 @@
         font-weight: bold;
       }
 
-      
-      .card {
-  width: 100%; /* กำหนดความกว้างของการ์ดให้เท่ากัน */
-  height: auto; /* กำหนดความสูงของการ์ดให้เป็นค่าตามข้อมูลภาพ */
-  transition: transform 0.3s ease; /* เพิ่มเอฟเฟ็กต์ transition เมื่อ hover */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
-.card:hover {
-  transform: scale(1.05); /* เพิ่มเอฟเฟ็กต์ขยายขนาดของการ์ดเมื่อ hover */
+.order-card {
+  height: 400px; /* Adjust the height as needed */
 }
+
+
+.card {
+  width: 100%;
+  height: 100%; /* เพิ่มความสูงให้เท่ากับความกว้าง */
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.card .card-img-top {
+  width: 100%;
+  height: auto; /* ลบความสูงและปรับให้กว้างอัตโนมัติ */
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05); /* เพิ่มเอฟเฟ็กต์ขยายขนาดของภาพเมื่อ hover */
+}
+
+.order-card {
+  height: 400px; /* Adjust the height as needed */
+}
+
 
       .order-button {
         background-color: #333; /* สีพื้นหลังของปุ่ม */
@@ -202,6 +229,7 @@
         border-radius: 25px; /* เพิ่มขอบโค้งให้กับปุ่ม */
         cursor: pointer;
       }
+      
 
       .edit-button:hover {
         background-color: #555;
@@ -209,7 +237,7 @@
     </style>
   </head>
   <body>
-  <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar">
       <div class="container">
           <a href="#" class="navbar-brand">SE Food</a>
           <img src="Logo.png" alt="Logo" class="navbar-logo">
@@ -283,7 +311,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Dish 2</h5>
                          <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <p class="card-text">40 บาท</p>
+                        <p class="card-text">120 บาท</p>
                         <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
                     </div>
                 </div>
@@ -294,7 +322,7 @@
                   <div class="card-body">
                       <h5 class="card-title">Dish 2</h5>
                        <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                      <p class="card-text">40 บาท</p>
+                      <p class="card-text">150 บาท</p>
                       <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
                   </div>
               </div>
@@ -305,7 +333,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Dish 2</h5>
                      <p class="card-text">Description of Dish 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p class="card-text">40 บาท</p>
+                    <p class="card-text">100 บาท</p>
                     <button class="order-button" data-product-id="2" data-price="40">Order Now</button>
                 </div>
             </div>
@@ -341,26 +369,27 @@
             
           </div>
           <div class="col-md-4">
-              <!-- Order section -->
-              <div class="card">
-                  <h5 class="card-header">Your Order</h5>
-                  <div class="card-body">
-                      <!-- Your order form and items will go here -->
-                      <form id="customer-info">
-                          <label for="customer-name">Name:</label>
-                          <input type="text" id="customer-name" name="customer-name" required /><br /><br />
-                          <label for="customer-phone">Phone:</label>
-                          <input type="tel" id="customer-phone" name="customer-phone" required /><br /><br />
-                          <label for="order-date">Order Date:</label>
-                          <input type="date" id="order-date" name="order-date" required /><br /><br />
-                      </form>
-                      <div class="order-items">
-                          <!-- Order items will be displayed here -->
-                      </div>
-                      <p class="order-total">Total: $<span id="order-total">0.00</span></p>
-                      <button id="checkout-button" class="order-button">Checkout</button>
-                  </div>
-              </div>
+            <!-- Order section -->
+            <div class="card order-card">
+                <h5 class="card-header">Your Order</h5>
+                <div class="card-body">
+                    <!-- Your order form and items will go here -->
+                    <form id="customer-info">
+                        <label for="customer-name">Name:</label>
+                        <input type="text" id="customer-name" name="customer-name" required /><br /><br />
+                        <label for="customer-phone">Phone:</label>
+                        <input type="tel" id="customer-phone" name="customer-phone" required /><br /><br />
+                        <label for="order-date">Order Date:</label>
+                        <input type="date" id="order-date" name="order-date" required /><br /><br />
+                    </form>
+                    <div class="order-items">
+                        <!-- Order items will be displayed here -->
+                    </div>
+                    <p class="order-total">Total: $<span id="order-total">0.00</span></p>
+                    <button id="checkout-button" class="order-button">Checkout</button>
+                </div>
+            </div>
+        </div>
           </div>
       </div>
   </div>
